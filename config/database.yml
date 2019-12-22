@@ -8,20 +8,27 @@ default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  user: postgres
+  password: darksouls2002.
 
 development:
   adapter: postgresql
-  database: my_database_development
+  encoding: unicode
+  database: ecotify_development
   pool: 5
-  timeout: 5000
+  user: postgres
+  password: 'darksouls2002.'
+
 test:
   adapter: postgresql
-  database: my_database_test
+  database: ecotify_test
   pool: 5
   timeout: 5000
+  user: postgres
+  password: 'darksouls2002.'
 
 production:
   adapter: postgresql
-  database: my_database_production
+  database: ecotify_production
   pool: 5
   timeout: 5000

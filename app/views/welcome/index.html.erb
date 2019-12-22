@@ -2,9 +2,16 @@
   <div class="hero-body ">
     <div class="container has-text-centered">
       <h1 class="title is-1">Ecotify</h1>
-      <div class="notification">
+      <div class="notification is-primary">
         <p class="content is-medium">This website is getting built, hang on tight!</p>
       </div>
+      <button class="button is-primary is-loading">Loading</button>
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+  setTimeout(function () {
+   window.location.href = "../articles/index.html"; //will redirect to your blog page (an ex: blog.html)
+}, 2000); //will call the function after 2 secs.
+</script>
