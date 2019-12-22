@@ -1,1 +1,17 @@
-<h1 class="title">Articles</h1>
+<% content_for :page_title, "Articles" %>
+
+<section class="section">
+  <div class="container">
+    <%= link_to "Post new article", new_article_path, class:"button is-info is-small"%>
+    <hr />
+    <% @article.each do |article| %>
+    <div class="card">
+      <div class="card-content">
+        <div class="media"><div class="media-content"><p class="title is-4"><%= link_to article.title, article %> </p></div></div>
+        <div class="content"><div class="notification"><%= article.content %></div></div>
+        <div class="comment-count"><span class="tag is-rounded"></span></div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</section>

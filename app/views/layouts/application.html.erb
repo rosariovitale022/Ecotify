@@ -10,6 +10,44 @@
   </head>
 
   <body>
+  <section class="hero is-primary is-bold">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+  </div>
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        Ecotify
+      </h1>
+      <h2 class="subtitle">
+        <%= yield :page_title %>
+      </h2>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <nav class="tabs is-centered is-toggle">
+      <div class="container">
+        <ul>
+          <% if (yield(:page_title) == "Articles") %>
+          <li class="is-active"><a href="/articles/">Articles</a></li>
+          <% else %>
+          <li><a href="/articles/">Articles</a></li>
+          <% end %>
+          <% if (yield(:page_title) == "Lessons") %>
+          <li class="is-active"><a>Lessons</a></li>
+          <% else %>
+          <li><a>Lessons</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</section>
+
+
     <%= yield %>
   </body>
 </html>
