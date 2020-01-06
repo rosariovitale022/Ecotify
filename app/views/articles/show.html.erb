@@ -15,14 +15,32 @@
         </p>
       </div>
     </nav>
-    <h1 class="title"><%= @article.title %></h1>
-    <div class="container" ><div class="content" ><div class="notification" style="background-color:#f9fff8; color:#0a0a0a"><%= raw @article.content %></div></div></div>
+    <div class="container" ><div class="content" >
+    <h1 class="title is-2"><%= @article.title %></h1>
+    <h6 class="subtitle is-6" style="text-align:right;"><%= @article.created_at %></h6>
+    </div></div>
+    <div class="container" ><div class="content" ><div class="notification" style="background-color:#f9fff8; color:#0a0a0a;overflow-wrap: break-word;">
+      <%= raw @article.content %></div></div></div>
     <hr />
     <hr />
   </div>
 </section>
 
 <section class="comment">
-
+  <div class="container">
+    <h2 class="subtitle is-5"><strong><%= if @article.comments.length == 1
+      @article.comments.length.to_s+" comment"
+      else
+      @article.comments.length.to_s+" comments"
+      end
+      %>
+    </strong></h2>
+    <%= render @article.comments %>
+    <div class="comment-form" style="padding-bottom:200px">
+      <hr />
+      <h3 class="subtitle is-3">Leave a comment</h3>
+      <%= render 'comments/form' %>
+    </div>
+  </div>
 </section>
 </body>

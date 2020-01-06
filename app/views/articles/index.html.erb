@@ -7,9 +7,14 @@
     <% @article.each do |article| %>
     <div class="card" style="margin-bottom:20px">
       <div class="card-content">
-        <div class="media"><div class="media-content"><p class="title is-4"><%= link_to "# "+article.title.to_str, article %> </p></div></div>
-        <div class="content" ><div class="notification" style="background-color:#f9fff8; color:#0a0a0a;max-height:520px;overflow:auto"><%= raw article.content %></div></div>
-        <div class="comment-count"><span class="tag is-rounded"></span></div>
+        <div class="media"><div class="media-content"><p class="title is-4" style="float:left"><%= link_to "# "+article.title.to_str, article %></p> <h6 class="subtitle is-6" style="margin-top:0px;float:right;"><%= article.created_at %></h6></div></div>
+        <div class="content" ><div class="notification" style="background-color:#f9fff8; color:#0a0a0a;max-height:520px;overflow:auto;overflow-wrap: break-word;"><%= raw article.content %></div></div>
+        <div class="comment-count"><span class="tag is-rounded"><strong><%= if article.comments.length == 1
+          article.comments.length.to_s+" comment"
+          else
+          article.comments.length.to_s+" comments"
+          end
+          %></span></strong></div>
         <nav class="level">
           <div class="level-left">
             <p class="level-item"></p>
